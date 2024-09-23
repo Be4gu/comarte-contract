@@ -1,15 +1,25 @@
 {
   "name": "api-compare-contract",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node index.js"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
-  }
+    "express": "^4.19.2",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Be4gu/comarte-contract.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Be4gu/comarte-contract/issues"
+  },
+  "homepage": "https://github.com/Be4gu/comarte-contract#readme",
+  "description": ""
 }
