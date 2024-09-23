@@ -5,52 +5,67 @@ const db = [
   {
     id: '123',
     contract: '001',
-    plan: 'Silver',
-    apis: ['consolidatedFinancialConnections'],
-    limits: '5000'
+    limits: {
+      count: '100',
+      plan: 'test',
+      rateLimit: '10000'
+    }
   },
   {
     id: '234',
     contract: '002',
-    plan: 'Platinum',
-    apis: [],
-    limits: '100000'
+    limits: {
+      count: '74',
+      plan: 'test',
+      rateLimit: '10000'
+    }
   },
   {
-    clientid: '345',
+    id: '345',
     contract: '003',
-    plan: 'Platinum',
-    apis: [],
-    limits: '100000'
+    limits: {
+      count: '100',
+      plan: 'test',
+      rateLimit: '10000'
+    }
   },
   {
     id: '456',
     contract: '004',
-    plan: 'Bronze',
-    apis: ['Tenders'],
-    limits: '1000'
+    limits: {
+      count: '3',
+      plan: 'Plata',
+      rateLimit: '10000'
+    }
   },
   {
     id: '567',
     contract: '005',
-    plan: 'Bronze',
-    apis: ['Tenders', 'Investigated'],
-    limits: '1000'
+    limits: {
+      count: '546',
+      plan: 'Oro',
+      rateLimit: '10000'
+    }
   },
   {
     id: '678',
     contract: '006',
-    plan: 'Platino',
-    apis: [],
-    limits: '100000'
+    limits: {
+      count: '134',
+      plan: 'Platinum',
+      rateLimit: '10000'
+    }
   }
 ]
 app.get('/msg/:contract/:id', (req, res, next) => {
   if (db.some((elem) => elem.contract === req.params.contract) === false) {
+    console.log('Contrato: ' + req.params.contract)
     res.status(404)
     return res.json({ message: 'Numero de contrato no encontrado' })
   }
+  console.log('Contrato: ' + req.params.id)
   if (db.some((elem) => elem.id === req.params.id) === false) {
+    console.log('ID: ' + req.params.id)
     res.status(404)
     return res.json({ message: 'ID no encontrado' })
   }
@@ -61,4 +76,7 @@ app.get('/msg/:contract/:id', (req, res, next) => {
   }
   res.status(200)
   res.json(user)
+})
+app.listen(3000, () => {
+  console.log('Server is running on port 3000')
 })
