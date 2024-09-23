@@ -77,6 +77,3 @@ app.get('/msg/:contract/:id', (req, res, next) => {
   res.status(200)
   res.json(user)
 })
-app.listen(3000, () => {
-  console.log('Server is running on port 3000')
-})
